@@ -22,7 +22,7 @@ PIO.config
     # optional
     # use your own css file hosted at the given URL
     # to override default widget styling
-    cssUrl:'https://gist.githubusercontent.com/pconerly/6deab5c7fb20675c9aa0/raw/2ee55784a3551d33972b5c1e410acf5314e18632/override.css'
+    cssUrl:'static/override.css'
 
   embedInElement:document.getElementById('embedHere'),
 
