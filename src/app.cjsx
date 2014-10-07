@@ -22,9 +22,8 @@ PIO.config
     # optional
     # use your own css file hosted at the given URL
     # to override default widget styling
-    cssUrl:'static/override.css'
+    cssUrl:'https://pconerly.github.io/printio-demo/static/override.css'
 
-  embedInElement:document.getElementById('embedHere'),
 
   # ?
   # canBuyOtherProducts: true
@@ -86,6 +85,23 @@ MyComponent = React.createClass
       ]
       goTo: 'tpl-cart'
 
+  embedded: (e) ->
+    PIO.open
+      images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+
+      items: [
+        {
+          productId: 89
+          sku: 'ShowerCurtain_71x74'
+          templateName: 'Single'
+          # images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+          quantity: 1
+        }
+      ]
+      goTo: 'tpl-edit'
+      embedInElement:document.getElementById('embedHere')
+
+
 
   render: ->
     <div>
@@ -96,6 +112,7 @@ MyComponent = React.createClass
       <button onClick={this.openPrintIO}>Print this photo</button>
       <button onClick={this.openPrintIOshower}>Print this photo as shower curtain</button>
       <button onClick={this.openPrintIOshowercart}>Print this photo as shower curtain, straight to cart</button>
+      <button onClick={this.embedded}>Embedded</button>
     </div>
 
 
