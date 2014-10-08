@@ -24,6 +24,13 @@ PIO.config
     # to override default widget styling
     cssUrl:'https://pconerly.github.io/printio-demo/static/override.css'
 
+  fns:
+    onEvent: (key, val) ->
+      if key is 'section-init'
+        # when a user navigates to a new page/section in the widget
+        # you can later use val.tplName as the 'goTo' param in .open()
+        # to direct the user back to that step
+        console.log "the user is now looking at the #{val.tplName} template"
 
   # ?
   # canBuyOtherProducts: true
