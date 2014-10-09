@@ -31,6 +31,11 @@ PIO.config
         # you can later use val.tplName as the 'goTo' param in .open()
         # to direct the user back to that step
         console.log "the user is now looking at the #{val.tplName} template"
+        console.log val
+        if val.tplName is 'tpl-product-a'
+          console.log "quit here"
+          PIO.close()
+
 
   # ?
   # canBuyOtherProducts: true
@@ -109,6 +114,37 @@ MyComponent = React.createClass
       embedInElement:document.getElementById('embedHere')
 
 
+  openCustomStep1: (e) ->
+    PIO.open
+      images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+
+      items: [
+        {
+          productId: 43  # canvas wraps
+          # sku: 'ShowerCurtain_71x74'
+          # templateName: 'Single'
+          # images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+          # quantity: 1
+        }
+      ]
+      # goTo: 'tpl-edit'
+      goTo: 'tpl-product-b'
+
+  openCustomStep1: (e) ->
+    PIO.open
+      images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+
+      items: [
+        {
+          productId: 89  # shower curtain
+          # sku: 'ShowerCurtain_71x74'
+          # templateName: 'Single'
+          # images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+          # quantity: 1
+        }
+      ]
+      # goTo: 'tpl-edit'
+      goTo: 'tpl-product-b'
 
   render: ->
     <div>
@@ -120,6 +156,10 @@ MyComponent = React.createClass
       <button onClick={this.openPrintIOshower}>Print this photo as shower curtain</button>
       <button onClick={this.openPrintIOshowercart}>Print this photo as shower curtain, straight to cart</button>
       <button onClick={this.embedded}>Embedded</button>
+      <br/>
+      <button onClick={this.openCustomStep1}>Make a framed canvas, open at the first product selection step</button>
+      <button onClick={this.openCustomStep1}>Make a shower curtain, open at the first product selection step</button>
+
     </div>
 
 
