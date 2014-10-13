@@ -91,7 +91,7 @@ MyComponent = React.createClass
           productId: 89
           sku: 'ShowerCurtain_71x74'
           templateName: 'Single'
-          # images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+          images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
           quantity: 1
         }
       ]
@@ -113,7 +113,6 @@ MyComponent = React.createClass
       goTo: 'tpl-edit'
       embedInElement:document.getElementById('embedHere')
 
-
   openCustomStep1: (e) ->
     PIO.open
       images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
@@ -130,7 +129,7 @@ MyComponent = React.createClass
       # goTo: 'tpl-edit'
       goTo: 'tpl-product-b'
 
-  openCustomStep1: (e) ->
+  openCustomStep2: (e) ->
     PIO.open
       images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
 
@@ -146,6 +145,15 @@ MyComponent = React.createClass
       # goTo: 'tpl-edit'
       goTo: 'tpl-product-b'
 
+  clearCart: (e) ->
+    'pass'
+    PIO.clearCart()
+
+  printCart: (e) ->
+    console.log PIO.getCart()
+
+
+
   render: ->
     <div>
       <span className="MyComponent">Hello, MyComponent!</span>
@@ -158,8 +166,10 @@ MyComponent = React.createClass
       <button onClick={this.embedded}>Embedded</button>
       <br/>
       <button onClick={this.openCustomStep1}>Make a framed canvas, open at the first product selection step</button>
-      <button onClick={this.openCustomStep1}>Make a shower curtain, open at the first product selection step</button>
-
+      <button onClick={this.openCustomStep2}>Make a shower curtain, open at the first product selection step</button>
+      <br />
+      <button onClick={this.clearCart}>Attempt to clear cart</button>
+      <button onClick={this.printCart}>Print cart</button>
     </div>
 
 
