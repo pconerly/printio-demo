@@ -5,7 +5,7 @@ PIO.config
   # debug: true
   # required -- api 
 
-  recipeId:"6cfb4f30-34c7-4cf6-9490-f51925650811"
+  recipeId:"c9e7d4b9-940f-4d29-a898-f7fcaa07c36e"
   # live
   url:"https://api.print.io/widget/"
 
@@ -152,6 +152,95 @@ MyComponent = React.createClass
   printCart: (e) ->
     console.log PIO.getCart()
 
+  addtoCart: (e) ->
+    PIO.open
+      goTo: 'tpl-cart'
+      images: ['http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg']
+      items: [ 
+        { 
+          # id: 'DA0F433C-D899-43E7-8227-34A7391641A7',
+          images: [ 
+            customizationState: {
+              areas: [ 
+                { 
+                  height: 20129,
+                  width: 26733.44269550653,
+
+                  left: -8561,
+
+                  parent: { 
+                    height: 15400,
+                    left: 0,
+                    top: 0,
+                    width: 14800
+                  },
+                  rotation: 0,
+                  top: -1338.049543379979,
+                  url: 'http://share-fastly.picmonkey.com/prod/photo_posts/pBTLW2NVss3_11053460.jpg',
+                }
+              ],
+              backgroundColor: '#000000',
+              isUserSet: false,
+              orientation: 0
+            }
+          ],
+          productId: 90,
+          quantity: 1,
+          sk: 'ShowerCurtain_71x74',
+          templateName: 'Single'
+        }
+      ]
+
+  addtoCart2: (e) ->
+    PIO.open
+      goTo: 'tpl-cart'
+      images: ["http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10616804_324389861072460_300407166_n.jpg"]
+      items: [
+        
+        # for each item, there can be 1-many images
+        
+        # each image can be either a url
+        # or a "customizationState"
+        # which is a "representation of an image on a product"
+        images: [
+          customizationState:
+            
+            # an area is a "section" of an final image
+            # -- there will be multiple areas
+            # when you have a template with multiple spaces
+            areas: [
+              
+              # height of the image placed
+              height: 15399.999999999984
+              width: 15399.999999999984
+              
+              # image was placed at -300,0
+              #     inside the "parent box" (below)
+              left: -299.9999999999813
+              top: 0
+              rotation: 0
+              url: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10616804_324389861072460_300407166_n.jpg"
+              
+              # parent is 
+              # "where the image was placed"
+              # -- think of the image being placed in a box
+              parent:
+                
+                # the "parent box" had this height/width
+                height: 15399.999999999984
+                width: 14800.000000000022
+                
+                # the "parent box" started at 0,0
+                left: 0
+                top: 0
+            ]
+        ]
+        productId: 90
+        quantity: 1
+        sku: "ShowerCurtain_71x74"
+        templateName: "Single"
+      ]
+
 
 
   render: ->
@@ -170,6 +259,8 @@ MyComponent = React.createClass
       <br />
       <button onClick={this.clearCart}>Attempt to clear cart</button>
       <button onClick={this.printCart}>Print cart</button>
+      <button onClick={this.addtoCart}>Add to cart w/ customization object</button>
+      <button onClick={this.addtoCart2}>Add to cart -- Micahs example</button>
     </div>
 
 
