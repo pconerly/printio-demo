@@ -184,9 +184,9 @@ MyComponent = React.createClass
               orientation: 0
             }
           ],
-          productId: 90,
+          productId: 89,
           quantity: 1,
-          sk: 'ShowerCurtain_71x74',
+          sku: 'ShowerCurtain_71x74',
           templateName: 'Single'
         }
       ]
@@ -235,7 +235,7 @@ MyComponent = React.createClass
                 top: 0
             ]
         ]
-        productId: 90
+        productId: 89
         quantity: 1
         sku: "ShowerCurtain_71x74"
         templateName: "Single"
